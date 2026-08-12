@@ -4,15 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= fruit.name %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
   <body>
     <a href="/fruits">Back to Fruits</a>
+
     <h1><%= fruit.name %></h1>
+
     <% if (fruit.isReadyToEat) { %>
-  <p>Yummy Yummy get in my tummy!</p>
-<% } else { %>
-  <p>yuck!!! needs more time :</p>
-<% } %>
+      <p>Yummy Yummy get in my tummy!</p>
+    <% } else { %>
+      <p>Yuck!!! Needs more time :(</p>
+    <% } %>
+
+    <!-- Delete -->
+    <form action="/fruits/<%= fruit._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+
+    <!-- Edit -->
+    <a href="/fruits/<%= fruit._id %>/edit">Edit</a>
   </body>
 </html>
